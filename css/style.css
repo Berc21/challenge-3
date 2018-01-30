@@ -119,6 +119,7 @@ nav {
   max-width: 60rem;
   width: 100%;
   margin: 0 auto;
+  padding-top: 10rem;
   font-family: "Orbitron", sans-serif;
   font-weight: 300;
   color: #707070; }
@@ -126,21 +127,25 @@ nav {
     font-size: 5rem;
     letter-spacing: 0.4rem; }
   .count-down .count-down-container {
-    max-height: 24rem;
+    height: 23rem;
     border-radius: 1.5rem;
-    background: #03cbba;
-    background: #03cbba;
-    background: -moz-linear-gradient(45deg, #03cbba 0%, #03cbba 18%, #a77fcd 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #03cbba), color-stop(18%, #03cbba), color-stop(100%, #a77fcd));
-    background: -webkit-linear-gradient(45deg, #03cbba 0%, #03cbba 18%, #a77fcd 100%);
-    background: -o-linear-gradient(45deg, #03cbba 0%, #03cbba 18%, #a77fcd 100%);
-    background: -ms-linear-gradient(45deg, #03cbba 0%, #03cbba 18%, #a77fcd 100%);
     background: linear-gradient(45deg, #03cbba 0%, #03cbba 18%, #a77fcd 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03cbba', endColorstr='#a77fcd', GradientType=1 ); }
+    position: relative; }
     .count-down .count-down-container__time {
       font-size: 11rem;
       color: white;
       font-size: bold; }
+    .count-down .count-down-container__names {
+      font-size: 3.2rem;
+      position: absolute;
+      top: 14rem;
+      left: 8rem; }
+      .count-down .count-down-container__names li {
+        display: inline-block;
+        color: white;
+        margin-right: 3.5rem; }
+        .count-down .count-down-container__names li:last-of-type {
+          margin-right: 0; }
   .count-down__bottom-header {
     font-size: 5rem;
     letter-spacing: 0.4rem; }
@@ -235,7 +240,7 @@ nav {
         padding: 2rem;
         background: white;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .timeline .card__item .wrap--first {
           border-top-left-radius: 1.5rem;
           border-top-right-radius: 1.5rem; }
