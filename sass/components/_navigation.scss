@@ -1,15 +1,62 @@
-nav {
+.nav {
     display: inline-block;
     vertical-align: top;
     margin-top: 3rem;
     margin-left: 24rem;
-    .nav {
-        &__item {
+    @include media(phone) {
+        display: none;
+    }
+    &__item {
             display: inline-block;
             vertical-align: top;
             margin-right: 2.5rem;
             font-size: 2.2rem;
             color: $color-grey;
-        }
     }
+}
+
+.nav-mobile {
+
+    @include media(phone) {
+        display: block;
+    }
+    display: none;
+    background: white;
+    width: 0;
+    overflow-x: hidden;
+    height: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position: fixed;
+    z-index: 1;
+    top: 10rem;
+    transition: .7s;
+    left: 0;
+        &__item {
+            margin-right: 2.5rem;
+            max-width: 25rem;
+            font-size: 3rem;
+            font-weight: bold;
+            color: $color-grey;
+            display: block;
+            padding-bottom: 2rem;
+            &:first-of-type {
+                padding-top: 5rem;
+            }
+        }
+
+        .mobile-close-btn {
+            position: absolute;
+            top: 2rem;
+            left: 85%;
+        }
+}
+
+.mobile-open-btn {
+    @include media(phone) {
+        display: block;
+    }
+    display: none;
+    position: absolute;
+    top: 3.5rem;
+    left: 85%;
 }

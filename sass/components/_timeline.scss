@@ -43,10 +43,14 @@
         &__item {
             list-style-type: none;
             position: relative;
+            @include media(phone) {
+                background: none;
+            }
             width: 1rem;
             margin: 0 auto;
             padding-top: 50px;
             background: #fff;
+            
             &:nth-child(1)  {
                 border-radius: 1rem;
             }
@@ -55,6 +59,9 @@
             }
             &:nth-child(odd) div {
                 left: 45px;
+                @include media(phone) {
+                    left: -14rem;
+                }
                 &::before {
                     left: -1.5rem;
                     border-width: 8px 16px 8px 0;
@@ -62,6 +69,9 @@
                   }
               }
             &:nth-child(even) div {
+                @include media(phone) {
+                    left: -14rem;
+                }
                 left: -33.3rem;
                 &::before {
                     right: -1.5rem;
@@ -70,6 +80,9 @@
                   }
               }
             &::after {
+                @include media(phone) {
+                    content: none;
+                }
                 content: '';
                 position: absolute;
                 left: 50%;
@@ -84,6 +97,7 @@
 
             .wrap {
                 position: relative;
+               
                 bottom: 0;
                 width: 30rem;
                 padding: 2rem;
@@ -102,6 +116,9 @@
                     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
                 }
                 &::before {
+                    @include media(phone) {
+                        content: none;
+                    }
                     content: '';
                     position: absolute;
                     bottom: 0.7rem;
