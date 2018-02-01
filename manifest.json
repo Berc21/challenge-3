@@ -1,8 +1,8 @@
 {
   "name": "Google Mobile Web Specialist Scholarship Count Down App",
   "short_name": "MWS",
-  "theme_color": "#a77fcd",
-  "background_color": "#02ccba",
+  "theme_color": "#02ccba",
+  "background_color": "#a77fcd",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",

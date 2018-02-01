@@ -154,8 +154,9 @@ a {
       padding-top: 5rem; }
   .nav-mobile .mobile-close-btn {
     position: absolute;
-    top: 2rem;
-    left: 85%; }
+    top: 0;
+    left: 78%;
+    padding: 4rem; }
 
 .mobile-open-btn {
   display: none;

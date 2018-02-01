@@ -30,7 +30,7 @@ const x = setInterval(function() {
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById('cd-app').innerText = 'EXPIRED';
+    document.getElementById('cd-app').innerText = "EXPIRED";
   }
 }, 1000);
 
