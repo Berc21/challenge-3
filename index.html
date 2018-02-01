@@ -12,39 +12,46 @@
         
        <header class="main-header">
            <div class="container">
-
            
-           <div class="logo">
-                <a href="/index.html"> <img src="/img/mws.png" alt="" srcset=""></a>
+           <div class="logo-wrap">
+                <a href="/index.html"> 
+                   
+                   
+                    <img  class="logo-wrap__logo" src="/img/mws.png" alt="logo" srcset="">
+                
+                </a>
            </div>
            <nav class="nav" >
-
             <a href="/get-ready.html" class="nav__item">Get ready</a>
             <a target="_blank" href="https://discussions.udacity.com/t/challenges-design-to-html-css-js/514162/" class="nav__item">Challenge yourself</a>
             <a target="_blank" href="" class="nav__item">Github Repo</a>
             <a href="/timeline.html" class="nav__item">Timeline</a>
             <a target="_blank" href="https://www.udacity.com/mws/faq" class="nav__item">FAQ</a>
            </nav>
-
-
             </div>
        </header>
 
        <main class="count-down">
         <h1 class="count-down__top-header u-margin-top-10 u-text-center">Time is passing...</h1>
 
-        <div class="count-down-container u-text-center u-margin-top-5 ">
-            <span class="count-down-container__time">14:19:30</span> <br>
+        <div class="count-down-container u-margin-top-5 ">
+            <ul class="count-down-container__time">
+                <li id="days"></li> 
+                <li id="hours"></li> 
+                <li id="minutes"></li> 
+                <li id="seconds"></li>
+            </ul>
             <ul class="count-down-container__names">
-                <li class=" ">Days</li>
-                <li class="">Hours</li>
-                <li class="">Minutes</li>
+                <li >Days</li>
+                <li >Hrs</li>
+                <li >Min</li>
+                <li >Sec</li>
               </ul> 
         </div>
 
-        <h1 class="count-down__top-header u-margin-top-5 u-text-center u-margin-bottom-7">Are you?</h1>
+        <h1 class="count-down__bottom-header u-margin-top-5 u-text-center u-margin-bottom-7">Are you?</h1>
 
-        <a class="count-down__btn u-block-center">get ready</a>
+        <a href="/get-ready.html" class="count-down__btn u-block-center">get ready</a>
     </main>
         
        <footer>
@@ -52,5 +59,6 @@
                 Challange 3
            </p>     
        </footer>
+       <script src="/js/app.js"></script>
     </body>
 </html>

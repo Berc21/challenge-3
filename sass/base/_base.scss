@@ -8,7 +8,23 @@
 
 html {
     font-size: 62.5%;
+    font-size: 62.5%;
     height: 100%;
+
+    @include media(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+
+    @include media(tab-port) { // width < 900?
+        font-size: 48%; //1 rem = 8px, 8/16 = 50%
+    }
+    @include media(phone) { // width < 1200?
+        font-size: 40%; //1 rem = 9px, 9/16 = 50%
+    }
+    
+    @include media(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
 }
 
 body {
