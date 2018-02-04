@@ -95,9 +95,10 @@
         cursor: pointer;
         border: 1px solid #A77FCD;
         border-radius: 0.5rem;
-        padding: 2.5rem 4.4rem;
+        padding: 2.2rem 4.4rem;
         font-family: $secondary-font;
         width: 24rem;
+        text-align: center;
         &:hover {
         background: linear-gradient(45deg, rgba(3,203,186,1) 0%, rgba(3,203,186,1) 18%, rgba(167,127,205,1) 100%);
         color: white;
