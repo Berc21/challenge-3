@@ -1,4 +1,7 @@
 
+document.addEventListener("DOMContentLoaded", function() {
+
+
 const countDownDate = new Date('Feb 6, 2018 23:59:59').getTime();
 
 // Update the count down every 1 second
@@ -54,3 +57,26 @@ const mobileCloseButton = document.querySelector('.mobile-close-btn');
 mobileOpenButton.addEventListener('click', showIt);
 
 mobileCloseButton.addEventListener('click', hideIt);
+
+
+
+// service worker
+
+if ('serviceWorker' in navigator) {
+
+      window.addEventListener('load', function() {
+        navigator.serviceWorker
+            .register('/sw.js', {scope: './'})
+            .then(function(registration) {
+          // If registration is successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          //If registration is failed :(
+          console.log('ServiceWorker registration failed:', err);
+        });
+      });
+} 
+});
+
+
+

@@ -4,7 +4,7 @@
   "description": "An app that counts down phase 1 for Google Mobile Web Specialist Scholarship",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w --style compressed --scss"
   },
   "keywords": [],
   "author": "Berkan",
