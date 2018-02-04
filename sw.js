@@ -1,88 +1,108 @@
-let CACHENAME = 'v1';
+// Set a name for the current cache
+var cacheName = 'v2'; 
 
-let CACHEFILES = [
+// Default files to always cache
+var cacheFiles = [
     './',
-    '/.index.html',
+    './index.html',
     './get-ready.html',
     './timeline.html',
     './css/style.css',
     'https://fonts.googleapis.com/css?family=Orbitron|Roboto',
-    '.js/app.js'
+    './js/app.js'
+]
 
-];
 
-// install
-self.addEventListener('install', function(e){
-    console.log('Service Worker installed');
+self.addEventListener('install', function(e) {
+    console.log('[ServiceWorker] Installed');
+
+    // e.waitUntil Delays the event until the Promise is resolved
     e.waitUntil(
-        caches.open(CACHENAME)
-                .then( function(cache) {
-                        console.log('SW caching files');
-                         
-                        return cache.addAll(CACHEFILES);
-                     }).catch(function(err) {
-                        console.log(err);
-                            })
-                );
-        });
-// 
 
+    	// Open the cache
+	    caches.open(cacheName).then(function(cache) {
 
-
-
-self.addEventListener('activate', function(e){
-    console.log('Service Worker Activated')
-    e.waitUntil(
-        caches.keys().then(function(cacheNames){
-            return Promise.all(cacheNames.map(function(thisCacheName){
-                if(thisCacheName !== CACHENAME) {
-                    console.log('Removing cached files', thisCacheName);
-                    return caches.delete(thisCacheName);
-                }
-            }))
-        })
-    );
-  
+	    	// Add all the default files to the cache
+			console.log('[ServiceWorker] Caching cacheFiles');
+			return cache.addAll(cacheFiles);
+	    })
+	); // end e.waitUntil
 });
 
-self.addEventListener('fetch', function(e){
-    console.log('Service fecthing', e.request.url);
-    e.respondWith(
-    caches.match(e.request)
-    
-        .then(function(response){
-                if (response) {
-                    console.log('Found cache', e.request.url);
-                    return response;
-                }
-        
-        let requestClone = e.request.clone;        
-        
-        fetch(requestClone)
-                .then(function(response){
-                    if(!response){
-                        consoloe.log('SW, no response from Fecth');
-                    }
-                    var responseClone = response.clone();
 
-                    //  Open the cache
-                    caches.open(CACHENAME).then(function(cache) {
+self.addEventListener('activate', function(e) {
+    console.log('[ServiceWorker] Activated');
 
-                        // Put the fetched response in the cache
-                        cache.put(e.request, responseClone);
-                        console.log('[ServiceWorker] New Data Cached', e.request.url);
+    e.waitUntil(
 
-                        // Return the response
-                        return response;
-        
-                    }); // end caches.open
+    	// Get all the cache keys (cacheName)
+		caches.keys().then(function(cacheNames) {
+			return Promise.all(cacheNames.map(function(thisCacheName) {
 
-                })
-                .catch(function(err) {
-                    console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
-                    
+				// If a cached item is saved under a previous cacheName
+				if (thisCacheName !== cacheName) {
 
-                });
-    })
-); // end respondWith
+					// Delete that cached file
+					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+					return caches.delete(thisCacheName);
+				}
+			}));
+		})
+	); // end e.waitUntil
+
+});
+
+
+self.addEventListener('fetch', function(e) {
+	console.log('[ServiceWorker] Fetch', e.request.url);
+
+	// e.respondWidth Responds to the fetch event
+	e.respondWith(
+
+		// Check in cache for the request being made
+		caches.match(e.request)
+
+
+			.then(function(response) {
+
+				// If the request is in the cache
+				if ( response ) {
+					console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+					// Return the cached version
+					return response;
+				}
+
+				// If the request is NOT in the cache, fetch and cache
+
+				var requestClone = e.request.clone();
+				fetch(requestClone)
+					.then(function(response) {
+
+						if ( !response ) {
+							console.log("[ServiceWorker] No response from fetch ")
+							return response;
+						}
+
+						var responseClone = response.clone();
+
+						//  Open the cache
+						caches.open(cacheName).then(function(cache) {
+
+							// Put the fetched response in the cache
+							cache.put(e.request, responseClone);
+							console.log('[ServiceWorker] New Data Cached', e.request.url);
+
+							// Return the response
+							return response;
+			
+				        }); // end caches.open
+
+					})
+					.catch(function(err) {
+						console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
+					});
+
+
+			}) // end caches.match(e.request)
+	); // end e.respondWith
 });
