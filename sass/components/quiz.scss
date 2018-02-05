@@ -1,0 +1,70 @@
+.quiz {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem;   
+    padding-bottom: 10rem;
+   &__h1 {
+     text-align:center;
+     font-size: 5rem;
+   }
+   &__h2 {
+    font-size: 3rem;
+    padding-top: 2rem;
+  }
+   &__ul {
+     background: #07C9BB;
+     font-weight: 500;
+     list-style: none;
+     margin-top: 2rem;
+     border-radius: 2rem;
+     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      li {
+
+          &:first-of-type {
+            border-top-right-radius: 2rem;
+            border-top-left-radius: 2rem;
+          }
+          &:last-of-type {
+            border-bottom-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+          }
+     cursor: pointer;
+     position: relative;
+     padding: 12px 8px 12px 40px;
+     font-size: 18px;
+     transition: 0.2s;
+ 
+     /* make the list items unselectable */
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     
+        &:hover {
+           background: #8ddfd9;
+          }
+    
+       }
+     
+      .checked {
+         background: #b18ed3;
+         color: #000;
+         text-decoration: line-through;
+               &::before {
+               content: '';
+               position: absolute;
+               border-color: #fff;
+               border-style: solid;
+               border-width: 0 2px 2px 0;
+               top: 16px;
+               left: 16px;
+               transform: rotate(45deg);
+               height: 20px;
+               width: 7px;
+           }
+     }    
+     
+   }
+ 
+ }

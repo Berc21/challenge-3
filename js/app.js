@@ -1,17 +1,22 @@
 
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
 
-const countDownDate = new Date('Feb 6, 2018 23:59:59').getTime();
+const countDownDate = new Date('Feb 6, 2018 22:59:59').getTime();
 
 // Update the count down every 1 second
 const x = setInterval(function() {
 
   // Get todays date and time
-  const now = new Date().getTime();
+  const now = new Date()
+  const utcnow = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds()).getTime();
+  console.log(now)
 
   // Find the distance between now an the count down date
-  const distance = countDownDate - now;
+  const distance = countDownDate - utcnow;
 
   // Time calculations for days, hours, minutes and seconds
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -58,8 +63,65 @@ mobileOpenButton.addEventListener('click', showIt);
 
 mobileCloseButton.addEventListener('click', hideIt);
 
+// quizlist - SHAME
+
+
+let lesson2List = document.querySelector('.lesson-2');
+lesson2List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
+let lesson3List = document.querySelector('.lesson-3');
+lesson3List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+let lesson4List = document.querySelector('.lesson-4');
+lesson4List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+let lesson6List = document.querySelector('.lesson-6');
+lesson6List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+let lesson7List = document.querySelector('.lesson-7');
+lesson7List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+let lesson8List = document.querySelector('.lesson-8');
+lesson8List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+let lesson9List = document.querySelector('.lesson-9');
+lesson9List.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
 });
+
+
+
+
+
 
 
 // service worker
