@@ -13,11 +13,11 @@ const x = setInterval(function() {
   // Get todays date and time
   const now = new Date()
   const utcnow = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds()).getTime();
-  console.log(now)
+
 
   // Find the distance between now an the count down date
   const distance = countDownDate - utcnow;
-
+  console.log(distance)
   // Time calculations for days, hours, minutes and seconds
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -38,7 +38,9 @@ const x = setInterval(function() {
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById('cd-app').innerText = "EXPIRED";
+ 
+    const goodLuck = document.querySelector('.count-down-container').innerHTML = "<h1 class='count-down-container__time'> Good Luck </h1><p style='text-align: center; font-size: 3rem; color: #fff;'> For Phase 2 <p>";
+
   }
 }, 1000);
 
